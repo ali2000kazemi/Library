@@ -19,9 +19,12 @@ public class Library {
         return books.stream().filter(b -> b.getId() == id).findFirst().orElse(null);
     }
 
-    public Book addBook(Book book) {
+    public void addBook(Book book) {
         this.books.add(book);
-        return book;
+    }
+
+    public void removeBook(int id) {
+        this.books.removeIf(b -> b.getId() == id);
     }
 
     public Book getBookByTitle(String title) {
@@ -34,7 +37,6 @@ public class Library {
 
     public List<Book> searchBooksByTitle(String title) {
         return books.stream().filter(book -> book.getTitle().toLowerCase().contains(title.toLowerCase())).toList();
-//                .collect(Collectors.toList());
     }
 
     public List<Book> searchBooksByAuthor(String author) {
@@ -47,7 +49,7 @@ public class Library {
     }
 
     public List<Book> sortBooksByPublishDate(boolean asc) {
-        return this.books.stream().sorted(Comparator.comparingLong(Book::getPublishTimestamp)).toList();
+        return this.books.stream().sorted(Comparator.comparingLong(Book::getPublicationDate)).toList();
     }
 
     public List<Book> sortBooksByPublishDate() {

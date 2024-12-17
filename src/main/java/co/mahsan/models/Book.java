@@ -1,15 +1,21 @@
 package co.mahsan.models;
 
+import java.sql.Timestamp;
+
 public class Book {
     private final int id;
     private String title;
     private String author;
-    private long publishTimestamp;
+//    private long publishTimestamp;
+    private Timestamp publicationDate;
     private Status status;
 
     public static int idCounter = 0;
 
-    public Book(String title, String author, long publishTimestamp, Status status) {
+    public Book(String title, String author, Timestamp publicationDate, Status status) {
+        this.title = title;
+        this.author = author;
+        this.publicationDate = publicationDate;
         this.id = ++idCounter;
     }
 
@@ -25,8 +31,8 @@ public class Book {
         return author;
     }
 
-    public long getPublishTimestamp() {
-        return publishTimestamp;
+    public long getPublicationDate() {
+        return publicationDate.getTime();
     }
 
     public Status getStatus() {
