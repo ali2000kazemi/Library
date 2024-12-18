@@ -10,12 +10,13 @@ public class Book {
     private Timestamp publicationDate;
     private Status status;
 
-    public static int idCounter = 0;
+    private static int idCounter = 0;
 
     public Book(String title, String author, Timestamp publicationDate, Status status) {
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
+        this.status = status;
         this.id = ++idCounter;
     }
 

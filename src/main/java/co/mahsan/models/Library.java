@@ -49,7 +49,13 @@ public class Library {
     }
 
     public List<Book> sortBooksByPublishDate(boolean asc) {
-        return this.books.stream().sorted(Comparator.comparingLong(Book::getPublicationDate)).toList();
+        Comparator<Book> comparator = Comparator.comparingLong(Book::getPublicationDate);
+        if (!asc) {
+            comparator = comparator.reversed();
+        }
+        return books.stream()
+                .sorted(comparator)
+                .toList();
     }
 
     public List<Book> sortBooksByPublishDate() {
