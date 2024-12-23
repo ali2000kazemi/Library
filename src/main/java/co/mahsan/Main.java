@@ -1,7 +1,7 @@
 package co.mahsan;
 
 import co.mahsan.models.Book;
-import co.mahsan.models.Library;
+import co.mahsan.models.LinkedListLibrary;
 import co.mahsan.models.Status;
 
 import java.sql.Timestamp;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
-        Library library = new Library();
+        LinkedListLibrary library = new LinkedListLibrary();
 
         Book book1 = new Book(
                 "The Great Gatsby",
